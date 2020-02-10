@@ -36,6 +36,10 @@ Note: You can still override properties which are set by this plugin, by just co
 * Gradle version: v5.4.1
 * Android Studio: v3.5
 
+# Future Plans
+* Benchmark if this slows down the build process
+* If not, then maybe create a Android Studio template that applies this plugin by default
+
 Feel free to modify to the source to suit your needs.
 
 # References
