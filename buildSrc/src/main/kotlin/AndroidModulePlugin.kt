@@ -3,18 +3,22 @@ import com.hiya.plugins.JacocoAndroidUnitTestReportExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.reporting.Report
 import org.gradle.api.tasks.testing.Test
 import org.gradle.kotlin.dsl.configure
 import org.gradle.kotlin.dsl.dependencies
+import org.gradle.kotlin.dsl.fileTree
 import org.gradle.kotlin.dsl.getByType
 import org.gradle.kotlin.dsl.withType
 import org.gradle.testing.jacoco.plugins.JacocoPluginExtension
 import org.gradle.testing.jacoco.plugins.JacocoTaskExtension
+import org.gradle.testing.jacoco.tasks.JacocoBase
+import org.gradle.testing.jacoco.tasks.JacocoReportBase
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import org.sonarqube.gradle.SonarQubeExtension
 
 /***
- * This plugin is instantiated every time when you apply the this plugin to build.gradle in feature module
+ * This plugin is instantiated every time when you apply this plugin to build.gradle in library/feature module
  * <code>apply plugin: 'dev.nikhi1.plugin.android'</code>
  */
 class AndroidModulePlugin : Plugin<Project> {
@@ -53,9 +57,8 @@ internal fun Project.configureAndroidBlock() {
             targetCompatibility = JavaVersion.VERSION_1_8
         }
 
-        dataBinding.isEnabled = true
 
-        tasks.withType(KotlinCompile::class.java).configureEach {
+        tasks.withType(KotlinCompile::class.java).all {
             kotlinOptions {
                 jvmTarget = JavaVersion.VERSION_1_8.toString()
             }
@@ -64,6 +67,12 @@ internal fun Project.configureAndroidBlock() {
         testOptions {
             unitTests.apply {
                 isReturnDefaultValues = true
+            }
+        }
+
+        buildTypes {
+            getByName("debug") {
+                isTestCoverageEnabled = true
             }
         }
     }
@@ -92,6 +101,8 @@ internal fun Project.configureTestDependencies() {
 
             add("androidTestImplementation", Libs.testRunner)
             add("androidTestImplementation", Libs.testRules)
+            add("androidTestImplementation", Libs.testKtx)
+            add("androidTestImplementation", Libs.espressoCore)
         }
     }
 }
@@ -148,5 +159,12 @@ internal fun Project.configureJacoco() {
             "**/androidx/databinding/*Binding.class",
             "**/**Bind**/**"
         )
+    }
+
+    afterEvaluate {
+        val task = tasks.getByName("jacocoTestDebugUnitTestReport") as JacocoReportBase
+        val tree = fileTree(buildDir)
+        tree.include("**/*.ec")
+        task.executionData(tree)
     }
 }

@@ -16,7 +16,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.71")
 
     /* Depend on the android gradle plugin, since we want to access it in our plugin */
-    implementation("com.android.tools.build:gradle:3.6.3")
+    implementation("com.android.tools.build:gradle:4.0.0")
 
     implementation("org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:2.8.0.1969")
 

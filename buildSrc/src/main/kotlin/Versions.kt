@@ -17,6 +17,8 @@ internal object Versions {
     const val mockk = "1.9"
     const val coreTesting = androidxArch
     const val testRunner = "1.2.0"
+    const val testKtx = "1.3.0-beta02"
+    const val espressoCore = "3.1.0"
 }
 
 object Libs {
@@ -32,4 +34,6 @@ object Libs {
     val mockk = "io.mockk:mockk:${Versions.mockk}"
     val testRunner = "androidx.test:runner:${Versions.testRunner}"
     val testRules = "androidx.test:rules:${Versions.testRunner}"
+    val testKtx = "androidx.test:core-ktx:${Versions.testKtx}"
+    val espressoCore = "androidx.test.espresso:espresso-core:${Versions.espressoCore}"
 }

@@ -1,8 +1,13 @@
 package dev.nikhi1.sampleapp
 
+import androidx.test.core.app.ActivityScenario
+import androidx.test.core.app.launchActivity
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions
+import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.internal.runner.junit4.AndroidJUnit4ClassRunner
-import androidx.test.platform.app.InstrumentationRegistry
-import org.junit.Assert.assertEquals
+import org.junit.After
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
 
@@ -13,10 +18,21 @@ import org.junit.runner.RunWith
  */
 @RunWith(AndroidJUnit4ClassRunner::class)
 class ExampleInstrumentedTest {
+
+    lateinit var activityScenario: ActivityScenario<MainActivity>
+
+    @Before
+    fun setUp() {
+        activityScenario= launchActivity()
+    }
+
     @Test
-    fun useAppContext() {
-        // Context of the app under test.
-        val appContext = InstrumentationRegistry.getInstrumentation().targetContext
-        assertEquals("dev.nikhi1.sampleapp", appContext.packageName)
+    fun find_and_click_FAB() {
+        onView(withId(R.id.fab)).perform(ViewActions.click())
+    }
+
+    @After
+    fun tearDown() {
+        activityScenario.close()
     }
 }
