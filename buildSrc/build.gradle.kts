@@ -29,6 +29,9 @@ dependencies {
     implementation(localGroovy())
 }
 
+// Added to overcome https://github.com/mockk/mockk/issues/281 for now.
+// Seems to be fixed in mockk version 1.10.0
+// TODO: Remove this after testing
 allprojects {
     configurations.all {
         resolutionStrategy {
