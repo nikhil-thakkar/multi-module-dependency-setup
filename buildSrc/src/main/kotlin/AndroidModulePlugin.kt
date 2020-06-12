@@ -85,6 +85,8 @@ internal fun Project.configureCommonDependencies() {
             add("implementation", Libs.constraintLayout)
             add("implementation", Libs.navigator)
             add("implementation", Libs.material)
+            add("implementation", Libs.fragment)
+            add("implementation", Libs.fragmentKtx)
         }
     }
 }
@@ -96,11 +98,14 @@ internal fun Project.configureTestDependencies() {
             add("testImplementation", Libs.mockk)
             add("testImplementation", Libs.coreTesting)
             add("testImplementation", Libs.kotlinJDK)
+            add("debugImplementation", Libs.fragmentTesting)
 
             add("androidTestImplementation", Libs.testRunner)
             add("androidTestImplementation", Libs.testRules)
             add("androidTestImplementation", Libs.testKtx)
             add("androidTestImplementation", Libs.espressoCore)
+            add("androidTestImplementation", Libs.navTesting)
+            add("androidTestImplementation", Libs.truth)
         }
     }
 }

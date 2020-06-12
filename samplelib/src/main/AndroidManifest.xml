@@ -1,5 +1,1 @@
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.nikhi1.samplelib">
-
-    /
-    </manifest>
+<manifest package="dev.nikhi1.samplelib" />

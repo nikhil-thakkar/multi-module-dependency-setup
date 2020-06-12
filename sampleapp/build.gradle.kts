@@ -12,3 +12,7 @@ android {
         resConfigs("en")
     }
 }
+
+dependencies {
+    implementation(project(":samplelib"))
+}
