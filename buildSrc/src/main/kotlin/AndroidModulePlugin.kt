@@ -66,6 +66,7 @@ internal fun Project.configureAndroidBlock() {
             unitTests.apply {
                 isReturnDefaultValues = true
             }
+            animationsDisabled true
         }
 
         buildTypes {
@@ -113,7 +114,7 @@ internal fun Project.configureTestDependencies() {
 /**
  * [SonarQube] is the leading tool for continuously inspecting the Code Quality and Security of your codebases and
  * guiding development teams during Code Reviews.
- * These analysis are driven by automated Static Code Analysis rules. You can add your own rules or use [detekt] rules for analysis as well.
+ * These analyses are driven by automated Static Code Analysis rules. You can add your own rules or use [detekt] rules for analysis as well.
  * This method will configure [SonarQube] at the root of the project.
  * Update the values for [sonar.projectKey], [sonar.organization], [sonar.host.url], [sonar.login] according to your project setup.
  */
