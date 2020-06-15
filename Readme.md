@@ -1,4 +1,4 @@
-# Multiple Module Dependency setup
+# Multiple Module Dependency setup :package:
 
 The purpose of this repo to demonstrate the use of a custom **Gradle** plugin to centralize the dependency management in multi-module app setup.
 
@@ -15,7 +15,7 @@ I recently started working on a sample [project](https://github.com/nikhil-thakk
 This lead me to do some research on the topic and I found people already have a solution :money_mouth_face:.
 There are a couple of blog posts that I found interesting (outlined below) and inspired me to dig further.
 
-# About 
+# About :books:
 The repo contains two example android modules namely `sampleapp` and `samplelib`. These modules demonstrate the usage of the `Plugin` in their respective `build.gradle` files [here](https://github.com/nikhil-thakkar/multi-module-dependency-setup/blob/927ab581e25f7e30d524bd72a78104612dfe18c9/sampleapp/build.gradle.kts#L1-L4) and [here](https://github.com/nikhil-thakkar/multi-module-dependency-setup/blob/927ab581e25f7e30d524bd72a78104612dfe18c9/samplelib/build.gradle.kts#L1-L4).
 
 The, `AndroidModulePlugin`, plugin will configure the following for each of the modules:
@@ -27,7 +27,7 @@ The, `AndroidModulePlugin`, plugin will configure the following for each of the 
 Note: You can still override properties which are set by this plugin, by just configuring them again using the android {} or other blocks :sunglasses:.
 
 
-# Use it in your project
+# Use it in your project :cookie:
 The actual setup is pretty simple. The code is also pretty self-explanatory. All you have to do is copy the `buildSrc` folder to root of your app project.
 And click on **Gradle sync**![alt gradle sync icon](https://developer.android.com/studio/images/buttons/toolbar-sync-gradle.png) so that gradle can pick up the source and build the plugin and add it to build phase.
 
@@ -62,8 +62,10 @@ The `Plugin` configures the different properties required for SonarQube plugin t
 
 This repo uses [`sonarcloud.io`](https://sonarcloud.io) which is free for open-source projects and is a cloud hosted solution. But in most cases, there would be a private hosted SonarQube server running in the infra. Just configure the `Plugin` with correct values.
 
-# A word about CI
-Irrespective of any CI tool, in theory, we need to run some gradle tasks. These gradle tasks are mostly either running Unit and/or UI tests. Post that some static code analysis either `ktlint` or `detekt`.
+Refer [this](https://github.com/nikhil-thakkar/eventbrite-clone/blob/master/.github/workflows/pull_request.yml) github action if you feel lost.
+
+# A word about CI :gear:
+Irrespective of any CI tool, in theory, we need to run some gradle tasks. These gradle tasks are for most cases either run Unit and/or UI tests. Post that some static code analysis which could be either `ktlint` or `detekt` or something on similar lines.
 
 Here is the minimum gradle tasks that needs to be run
 ```
