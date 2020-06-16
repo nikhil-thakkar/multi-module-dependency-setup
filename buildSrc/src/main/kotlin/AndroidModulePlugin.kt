@@ -66,7 +66,7 @@ internal fun Project.configureAndroidBlock() {
             unitTests.apply {
                 isReturnDefaultValues = true
             }
-            animationsDisabled true
+            animationsDisabled = true
         }
 
         buildTypes {

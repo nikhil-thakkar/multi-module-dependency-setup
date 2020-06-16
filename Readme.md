@@ -12,7 +12,7 @@ The obvious side-effect of this is the versioning nightmare if the same library 
 We don't want that or do we :thinking:.
 
 I recently started working on a sample [project](https://github.com/nikhil-thakkar/eventbrite-clone) which demonstrate the use of `dynamic-feature` modules and found myself in a similar situation.
-This lead me to do some research on the topic and I found people already have a solution :money_mouth_face:.
+This lead me to do some research on the topic and :money_mouth_face: found people already have a solution.
 There are a couple of blog posts that I found interesting (outlined below) and inspired me to dig further.
 
 # About :books:
@@ -40,9 +40,9 @@ Make sure to apply this plugin after either `application`, `library` and/or `dyn
 # Why Jacoco?
 Jacoco is a tool to measure code coverage and currently the most widely used.
 
-> Code coverage in simpler terms means how much of the production code that you wrote is being executed at runtime. 
+> Code coverage in simple terms means how much of the production code that you wrote is being executed at runtime when a particular test suite runs.
 
-To measure this you write Unit\UI\Integration tests. And this is what Jacoco does under the hood, it hooks on to these tests while they are executing. In the process, it can see what code is executed as part of the tests and calculates its coverage.
+To measure this you write Unit/UI/Integration tests. And this is what Jacoco does under the hood, it hooks on to these tests while they are executing. In the process, it can see what code is executed as part of the tests and calculates its coverage.
 These coverages are helpful, for example, if you have miss handling an `else` branch in one of your test cases.
 
 Though on Android, the test execution data (.ec file) for UI test cases is not taken into account by Jacoco and hence we have to tweak the gradle task and make sure if also reads those files to give a complete code coverage across Unit and UI/Integration test cases.
