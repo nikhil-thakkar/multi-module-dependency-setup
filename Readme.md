@@ -8,9 +8,6 @@ When you start breaking down your Android app into different modules you need to
 * Copy the `dependencies` block even though you might be repeating yourself. This is specially true for common and test dependencies.
 * ~~Make sure each feature module depends on the `app` module or whatever base module you have.~~ Turn outs this is a bit of complex scenario to infer for simple use case. This has been removed from the `Plugin` implementation.
 
-The obvious side-effect of this is the versioning nightmare if the same library is being consumed across different modules which might lead to bloated apk sizes.
-We don't want that or do we :thinking:.
-
 I recently started working on a sample [project](https://github.com/nikhil-thakkar/eventbrite-clone) which demonstrate the use of `dynamic-feature` modules and found myself in a similar situation.
 This lead me to do some research on the topic and :money_mouth_face: found people already have a solution.
 There are a couple of blog posts that I found interesting (outlined below) and inspired me to dig further.
